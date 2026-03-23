@@ -1,0 +1,552 @@
+/* ========================================
+   STYLE POUR PAGE DE CONNEXION
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fb 0%, #ffffff 100%);
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* ==================== NAVBAR ==================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(10, 37, 64, 0.1);
+    z-index: 1000;
+    padding: 1rem 5%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo-bleu {
+    color: #0a2540;
+}
+
+.logo-vert {
+    color: #00b4a5;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #0a2540;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00b4a5;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-connexion {
+    text-decoration: none;
+    color: #0a2540;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-connexion.active {
+    color: #00b4a5;
+    font-weight: 600;
+}
+
+.btn-publier {
+    text-decoration: none;
+    background: linear-gradient(135deg, #00b4a5, #7ed9d0);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 180, 165, 0.3);
+}
+
+.btn-publier:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 165, 0.4);
+}
+
+/* ==================== CONTENEUR PRINCIPAL ==================== */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(10, 37, 64, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== EN-TÊTE ==================== */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    font-size: 2rem;
+    color: #0a2540;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #718096;
+    font-size: 1rem;
+}
+
+/* ==================== SÉLECTEUR DE RÔLE ==================== */
+.role-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #f7fafc;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.role-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.role-btn i {
+    font-size: 1.1rem;
+}
+
+.role-btn:hover {
+    background: rgba(0, 180, 165, 0.1);
+    color: #00b4a5;
+}
+
+.role-btn.active {
+    background: white;
+    color: #00b4a5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ==================== FORMULAIRE ==================== */
+.login-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    color: #00b4a5;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #00b4a5;
+    box-shadow: 0 0 0 3px rgba(0, 180, 165, 0.1);
+    background: white;
+}
+
+.form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* Champ mot de passe avec icône */
+.password-input {
+    position: relative;
+}
+
+.password-input .form-control {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #00b4a5;
+}
+
+/* ==================== OPTIONS ==================== */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #00b4a5;
+}
+
+.remember-me label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #00b4a5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #0a2540;
+    text-decoration: underline;
+}
+
+/* ==================== BOUTON DE CONNEXION ==================== */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #0a2540, #1a3b5c);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-login:hover {
+    background: #00b4a5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 180, 165, 0.3);
+}
+
+.btn-login:hover::before {
+    left: 100%;
+}
+
+.btn-login i {
+    transition: transform 0.3s ease;
+}
+
+.btn-login:hover i {
+    transform: translateX(5px);
+}
+
+/* ==================== LIEN D'INSCRIPTION ==================== */
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p {
+    color: #718096;
+    font-size: 0.95rem;
+}
+
+.register-link a {
+    color: #00b4a5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #0a2540;
+    text-decoration: underline;
+}
+
+/* ==================== SÉPARATEUR ==================== */
+.separator {
+    position: relative;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 70px);
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.separator::before {
+    left: 0;
+}
+
+.separator::after {
+    right: 0;
+}
+
+.separator span {
+    background: white;
+    padding: 0 15px;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* ==================== BOUTONS SOCIAUX ==================== */
+.social-login {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-btn i {
+    font-size: 1.1rem;
+}
+
+.social-btn.google:hover {
+    border-color: #DB4437;
+    color: #DB4437;
+    background: #fee9e7;
+}
+
+.social-btn.linkedin:hover {
+    border-color: #0077B5;
+    color: #0077B5;
+    background: #e3f0fa;
+}
+
+/* ==================== MESSAGE DE BIENVENUE ==================== */
+.welcome-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    z-index: 2000;
+    display: none;
+    animation: messagePop 0.5s ease;
+}
+
+.welcome-message.show {
+    display: block;
+}
+
+@keyframes messagePop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.message-content i {
+    font-size: 4rem;
+    color: #00b4a5;
+    margin-bottom: 20px;
+}
+
+.message-content h3 {
+    font-size: 1.8rem;
+    color: #0a2540;
+    margin-bottom: 10px;
+}
+
+.message-content p {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+/* Overlay pour le message */
+.welcome-message::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .role-selector {
+        flex-direction: column;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn-login {
+        padding: 14px;
+        font-size: 1rem;
+    }
+    
+    .welcome-message {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .message-content i {
+        font-size: 3rem;
+    }
+    
+    .message-content h3 {
+        font-size: 1.5rem;
+    }
+}
