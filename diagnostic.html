@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostic Serveur</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .box { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Diagnostic Serveur PHP</h1>
+    
+    <div class="box">
+        <h2>1. Test du serveur PHP</h2>
+        <button onclick="testPhp()">Tester PHP</button>
+        <div id="phpResult"></div>
+    </div>
+    
+    <div class="box">
+        <h2>2. Informations</h2>
+        <p><strong>URL actuelle:</strong> <span id="currentUrl"></span></p>
+        <p><strong>Chemin attendu:</strong> C:\wamp64\www\careerpropulse\</p>
+    </div>
+    
+    <script>
+        document.getElementById('currentUrl').textContent = window.location.href;
+        
+        async function testPhp() {
+            const div = document.getElementById('phpResult');
+            try {
+                const response = await fetch('server-test.php');
+                const data = await response.json();
+                div.innerHTML = `<div class="success"><strong>✓ PHP fonctionne!</strong><br>
+                    Version: ${data.php_version}<br>
+                    Heure serveur: ${data.timestamp}<br>
+                    Message: ${data.message}
+                    </div>`;
+            } catch (error) {
+                div.innerHTML = `<div class="error"><strong>✗ Erreur:</strong> ${error.message}<br>
+                    Assurez-vous que:<br>
+                    1. WAMP/XAMPP est démarré (Apache + MySQL verts)<br>
+                    2. Les fichiers sont dans C:\\wamp64\\www\\careerpropulse\\<br>
+                    3. Accédez via http://localhost/careerpropulse/
+                    </div>`;
+            }
+        }
+        
+        // Test auto au chargement
+        window.addEventListener('load', testPhp);
+    </script>
+</body>
+</html>

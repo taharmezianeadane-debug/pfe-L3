@@ -41,7 +41,10 @@ body {
     font-size: 1.8rem;
     font-weight: 700;
     text-decoration: none;
+<<<<<<< HEAD
     text-align: center;
+=======
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
 }
 
 .logo-bleu {
@@ -127,7 +130,10 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     to {
         opacity: 1;
         transform: translateY(0);
@@ -149,6 +155,7 @@ body {
 .login-header p {
     color: #718096;
     font-size: 1rem;
+<<<<<<< HEAD
     line-height: 1.5;
 }
 
@@ -159,6 +166,8 @@ body {
     padding: 12px 16px;
     border-radius: 10px;
     margin-bottom: 20px;
+=======
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
 }
 
 /* ==================== SÉLECTEUR DE RÔLE ==================== */
@@ -479,7 +488,10 @@ body {
         opacity: 0;
         transform: translate(-50%, -40%);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     to {
         opacity: 1;
         transform: translate(-50%, -50%);
@@ -520,6 +532,7 @@ body {
     .nav-menu {
         display: none;
     }
+<<<<<<< HEAD
 
     .login-card {
         padding: 30px 20px;
@@ -533,6 +546,21 @@ body {
         flex-direction: column;
     }
 
+=======
+    
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .role-selector {
+        flex-direction: column;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+    
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     .form-options {
         flex-direction: column;
         gap: 15px;
@@ -544,21 +572,37 @@ body {
     .login-header h1 {
         font-size: 1.8rem;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     .btn-login {
         padding: 14px;
         font-size: 1rem;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     .welcome-message {
         width: 90%;
         padding: 30px 20px;
     }
+<<<<<<< HEAD
 
     .message-content i {
         font-size: 3rem;
     }
 
+=======
+    
+    .message-content i {
+        font-size: 3rem;
+    }
+    
+>>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     .message-content h3 {
         font-size: 1.5rem;
     }
