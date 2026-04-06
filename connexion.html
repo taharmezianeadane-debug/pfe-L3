@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="">
+    <title>Connexion - CareerPropulse</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="connexion.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <span>Connexion</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </div>
+
+            <div class="login-header">
+                <h1>Connexion</h1>
+                <p>Connectez-vous pour accéder à votre espace candidat ou employeur.</p>
+            </div>
+
+            <div id="loginMessage" class="message error" style="display:none;"></div>
+
+            <form id="loginForm" class="login-form">
+                <div class="role-selector">
+                    <label id="roleEmploye" class="role-btn active">
+                        <input type="radio" name="role" value="employe" checked>
+                        <span>Candidat</span>
+                    </label>
+                    <label id="roleEmployeur" class="role-btn">
+                        <input type="radio" name="role" value="employeur">
+                        <span>Employeur</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <button type="button" id="togglePassword" class="toggle-password">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" id="btnLogin" class="btn-login">Se connecter</button>
+            </form>
+
+            <div class="register-link">
+                <p><a href="index.html">Retour à l'accueil</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api-client.js"></script>
+    <script src="connexion.js"></script>
+</body>
+
+</html>

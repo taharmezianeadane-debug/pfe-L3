@@ -1,0 +1,356 @@
+/* ========================================
+   STYLE POUR DIMENSION CANDIDAT
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+/* ==================== HEADER & NAVBAR ==================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(10, 37, 64, 0.1);
+    z-index: 1000;
+    padding: 1rem 5%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo-bleu {
+    color: #0a2540;
+}
+
+.logo-vert {
+    color: #00b4a5;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #0a2540;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00b4a5;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-user {
+    color: #0a2540;
+    font-weight: 600;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.candidate-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #0a2540;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+/* ==================== SECTIONS ==================== */
+.section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section h2 {
+    color: #0a2540;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #00b4a5;
+    padding-bottom: 0.5rem;
+}
+
+/* ==================== OFFERS GRID ==================== */
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.offer-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 180, 165, 0.2);
+}
+
+.offer-item h3 {
+    color: #0a2540;
+    margin-bottom: 0.5rem;
+}
+
+.offer-company {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.offer-meta {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.offer-description {
+    color: #374151;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.btn-apply {
+    background: linear-gradient(135deg, #00b4a5, #7ed9d0);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.btn-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 165, 0.4);
+}
+
+.btn-apply:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* ==================== APPLICATIONS ==================== */
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.application-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #f9fafb;
+}
+
+.application-item h3 {
+    color: #0a2540;
+    margin-bottom: 0.5rem;
+}
+
+.application-meta {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-accepted {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-rejected {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* ==================== PROFILE ==================== */
+.profile-section {
+    margin-top: 2rem;
+}
+
+.profile-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.profile-card p {
+    margin-bottom: 1rem;
+    color: #374151;
+}
+
+.profile-card strong {
+    color: #0a2540;
+}
+
+/* ==================== MESSAGES ==================== */
+.message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .candidate-page {
+        padding: 1rem 3%;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== MATCHING INDICATORS ==================== */
+.match-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.match-percentage {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.offer-item.high-match .match-percentage {
+    background: #10b981;
+}
+
+.offer-item.medium-match .match-percentage {
+    background: #f59e0b;
+}
+
+.offer-item.low-match .match-percentage {
+    background: #ef4444;
+}
+
+.offer-item {
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.offer-item.high-match {
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%);
+}
+
+.offer-item.medium-match {
+    border-left-color: #f59e0b;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
+}
+
+.offer-item.low-match {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%);
+}
+
+.offer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.offer-header h3 {
+    margin: 0;
+    color: #0a2540;
+}
