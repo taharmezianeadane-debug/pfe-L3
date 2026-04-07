@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil employeur - CareerPropulse</title>
+    <link rel="stylesheet" href="profil_employeur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </a>
+            <div class="nav-buttons">
+                <span class="user-info" id="userInfo"></span>
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-building"></i> Mon espace employeur</h1>
+            <p>Consultez vos informations et vos offres publiées</p>
+        </div>
+
+        <div id="messageArea" class="message-area"></div>
+
+        <div class="profile-grid">
+            <!-- Colonne gauche : Profil entreprise -->
+            <div class="profile-card company-card">
+                <h2><i class="fas fa-id-card"></i> Mon entreprise</h2>
+                <div id="profileContent" class="profile-content">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-pulse"></i> Chargement...</div>
+                </div>
+            </div>
+
+            <!-- Colonne droite : Offres publiées -->
+            <div class="profile-card offers-card">
+                <h2><i class="fas fa-briefcase"></i> Mes offres publiées</h2>
+                <div id="offersContent" class="offers-content">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-pulse"></i> Chargement...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profil_employeur.js"></script>
+</body>
+</html>

@@ -64,11 +64,6 @@ if (searchBtn) {
         const jobValue = jobInput ? jobInput.value : '';
         const locationValue = locationInput ? locationInput.value : '';
         
-<<<<<<< HEAD
-=======
-        console.log('Recherche:', { job: jobValue, location: locationValue });
-        
->>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
         // Feedback visuel
         const searchBar = document.querySelector('.search-tech-bar');
         searchBar.style.boxShadow = '0 0 50px var(--vert-emeraude)';
@@ -156,8 +151,4 @@ if (searchBar) {
             searchBar.style.transform = 'scale(1)';
         }
     });
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54

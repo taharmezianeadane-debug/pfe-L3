@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil - CareerPropulse</title>
+    <link rel="stylesheet" href="profil_employer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+   <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </a>
+            <div class="nav-buttons">
+                   <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+         
+                <button  href="profil_employer.html"    class="btn-logout"><i class="fas fa-sign-out-alt"></i> Profil</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-user-circle"></i> Mon profil</h1>
+            <p>Consultez votre CV et le suivi de vos candidatures</p>
+        </div>
+
+        <div id="messageArea" class="message-area"></div>
+
+        <div class="profile-grid">
+            <!-- Colonne gauche : CV -->
+            <div class="profile-card cv-card">
+                <h2><i class="fas fa-id-card"></i> Mon CV</h2>
+                <div id="cvContent" class="cv-content">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-pulse"></i> Chargement...</div>
+                </div>
+            </div>
+
+            <!-- Colonne droite : Candidatures -->
+            <div class="profile-card applications-card">
+                <h2><i class="fas fa-paper-plane"></i> Mes candidatures</h2>
+                <div id="applicationsContent" class="applications-content">
+                    <div class="loading-spinner"><i class="fas fa-spinner fa-pulse"></i> Chargement...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profil_employer.js"></script>
+</body>
+</html>

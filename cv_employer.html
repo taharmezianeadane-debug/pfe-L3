@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPropulse - Inscription Employe</title>
+    <link rel="stylesheet" href="employer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="offres.html" class="nav-link">Offres</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="connexion.html" class="btn-connexion">Connexion</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="progress-bar">
+        <div class="progress-fill progress-empty" id="progressFill"></div>
+    </div>
+
+    <div class="split-container">
+        <div class="visual-side">
+            <div class="visual-content">
+                <h1 class="visual-title">Creez votre CV professionnel</h1>
+                <p class="visual-subtitle">Mettez en valeur vos competences linguistiques</p>
+
+                <div class="simple-illustration">
+                    <i class="fas fa-language fa-4x visual-icon"></i>
+                    <i class="fas fa-globe fa-4x visual-icon"></i>
+                    <i class="fas fa-flag fa-4x visual-icon"></i>
+                </div>
+
+                <div class="simple-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">+30</span>
+                        <span class="stat-label">Langues disponibles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Niveaux CECRL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-side">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Mon CV detaille</h2>
+                    <p>Completez votre profil professionnel</p>
+                </div>
+
+                <form class="cv-form" id="cvForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Informations personnelles</h3>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>Prenom *</label>
+                                <input type="text" class="form-control" id="prenom" placeholder="Votre prenom">
+                            </div>
+                            <div class="form-group half">
+                                <label>Nom *</label>
+                                <input type="text" class="form-control" id="nom" placeholder="Votre nom">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label>Email *</label>
+                                <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                            </div>
+                            <div class="form-group half">
+                                <label>Telephone *</label>
+                                <input type="tel" class="form-control" id="telephone" placeholder="+213 XX XX XX XX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Titre professionnel *</label>
+                            <input type="text" class="form-control" id="titre" placeholder="ex: Developpeur Full Stack">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-briefcase"></i> Experiences professionnelles</h3>
+
+                        <div id="experiencesContainer"></div>
+
+                        <button type="button" class="btn-add" id="addExperience">
+                            <i class="fas fa-plus"></i> Ajouter une experience
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Formations</h3>
+
+                        <div id="formationsContainer"></div>
+
+                        <button type="button" class="btn-add" id="addFormation">
+                            <i class="fas fa-plus"></i> Ajouter une formation
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-language"></i> Langues <span class="section-note">(Choisissez plusieurs langues)</span></h3>
+
+                        <div class="langues-multichoix" id="languesContainer"></div>
+
+                        <button type="button" class="btn-add" id="addLangue">
+                            <i class="fas fa-plus"></i> Ajouter une langue
+                        </button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-code"></i> Competences techniques</h3>
+
+                        <div class="skills-container" id="skillsContainer">
+                            <input type="text" class="skill-input" placeholder="Ajouter une competence...">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-lock"></i> Securite</h3>
+
+                        <div class="form-group">
+                            <label>Mot de passe *</label>
+                            <input type="password" class="form-control" id="password">
+                            <div class="password-strength">
+                                <div class="strength-bar strength-empty"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirmer le mot de passe *</label>
+                            <input type="password" class="form-control" id="confirmPassword">
+                        </div>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="acceptTerms">
+                        <label for="acceptTerms">J'accepte les conditions generales</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        Creer mon compte
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="employer.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
@@ -10,6 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,28 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cv-employe`
+-- Table structure for table `cv-employeur`
 --
 
-DROP TABLE IF EXISTS `cv-employe`;
-CREATE TABLE IF NOT EXISTS `cv-employe` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `cv-employeur`;
+CREATE TABLE IF NOT EXISTS `cv-employeur` (
+  `mail` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telephone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ville` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `poste_actuel` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `competences` text COLLATE utf8mb4_unicode_ci,
-  `domaine` enum('frontend','backend','data','design','gestion','devops','rh','support','marketing','qa') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom_company` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `profile_picture` longtext COLLATE utf8mb4_unicode_ci,
+  `nom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poste` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secteur` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `taille` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `localisation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_summary` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_cv_employe_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`mail`),
+  UNIQUE KEY `uk_cv_employeur_mail` (`mail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cv-employeur`
@@ -67,45 +66,48 @@ INSERT INTO `cv-employeur` (`mail`, `password`, `nom_company`, `profile_picture`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cv-employe`
+-- Table structure for table `employees`
 --
 
-DROP TABLE IF EXISTS `cv-employe`;
-CREATE TABLE IF NOT EXISTS `cv-employe` (
+DROP TABLE IF EXISTS `employees`;
+CREATE TABLE IF NOT EXISTS `employees` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telephone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ville` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `poste_actuel` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `competences` text COLLATE utf8mb4_unicode_ci,
-  `domaine` enum('frontend','backend','data','design','gestion','devops','rh','support','marketing','qa') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prenom` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `nom` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `profile_picture` longtext COLLATE utf8mb4_unicode_ci,
+  `telephone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titre` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cv_summary` text COLLATE utf8mb4_unicode_ci,
+  `skills_json` longtext COLLATE utf8mb4_unicode_ci,
+  `languages_json` longtext COLLATE utf8mb4_unicode_ci,
+  `experiences_json` longtext COLLATE utf8mb4_unicode_ci,
+  `formations_json` longtext COLLATE utf8mb4_unicode_ci,
+  `certificates_json` longtext COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_cv_employe_email` (`email`)
+  UNIQUE KEY `uk_employees_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `cv-employe`
+-- Dumping data for table `employees`
 --
 
-INSERT INTO `cv-employe` (`id`, `email`, `password`, `prenom`, `nom`, `telephone`, `ville`, `poste_actuel`, `description`, `competences`, `domaine`, `profile_picture`, `created_at`, `updated_at`) VALUES
-(1, 'finasalmon@dollicons.com', '$2y$10$pf7g1/YA1X7tuWLD1Xzcw.v9SGOgHN4Vq1rfXK4U5QFfZKWcNG24W', 'toudik', 'toudik', NULL, NULL, NULL, NULL, NULL, 'frontend', NULL, '2026-03-23 16:47:46', '2026-03-23 17:29:43'),
-(2, 'employe1@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Amina', 'Bensalem', '+213550000001', 'Alger', 'Developpeuse Frontend', 'Developpeuse frontend orientee interfaces React et experience utilisateur.', 'HTML, CSS, JavaScript, React, Tailwind', 'frontend', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(3, 'employe2@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Youssef', 'Mekki', '+213550000002', 'Oran', 'Developpeur Backend PHP', 'Profil backend avec experience sur PHP, APIs REST et bases de donnees MySQL.', 'PHP, Laravel, MySQL, REST API, Git', 'backend', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(4, 'employe3@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Sabrina', 'Touati', '+213550000003', 'Constantine', 'UX UI Designer', 'Designer produit avec sensibilite UX research et design systems.', 'Figma, Design System, Wireframing, Prototyping, Accessibility', 'design', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(5, 'employe4@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Bilal', 'Ait Ali', '+213550000004', 'Blida', 'Data Analyst', 'Analyste data capable de structurer des tableaux de bord et de nettoyer les donnees.', 'SQL, Power BI, Excel, Python, Data Visualization', 'data', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(6, 'employe5@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Lina', 'Ferhat', '+213550000005', 'Setif', 'Chef de Projet Digital', 'Chef de projet a l aise avec coordination produit, planning et suivi client.', 'Gestion de projet, Agile, Scrum, Jira, Communication', 'gestion', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(7, 'employe6@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Riad', 'Boukhalfa', '+213550000006', 'Annaba', 'DevOps Engineer', 'Ingenieur DevOps avec experience CI CD, dockerisation et supervision.', 'Docker, Linux, GitHub Actions, Nginx, Monitoring', 'devops', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(8, 'employe7@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Imane', 'Bouras', '+213550000007', 'Tlemcen', 'Assistante RH', 'Profil RH polyvalent avec suivi administratif et recrutement junior.', 'Recrutement, Administration RH, Excel, Organisation, Communication', 'rh', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(9, 'employe8@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Hakim', 'Mansouri', '+213550000008', 'Bejaia', 'Technicien Support IT', 'Technicien support oriente assistance utilisateurs, reseau local et maintenance.', 'Support IT, Windows, Reseau, Helpdesk, Maintenance', 'support', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(10, 'employe9@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Nour', 'Saidi', '+213550000009', 'Alger', 'Content Manager', 'Specialiste contenu digital et communication de marque sur canaux web.', 'Content Strategy, SEO, Copywriting, Social Media, Canva', 'marketing', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(11, 'employe10@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Samir', 'Hamlaoui', '+213550000010', 'Oran', 'QA Engineer', 'Ingenieur QA avec automatisation de tests et verification fonctionnelle.', 'Testing, Cypress, Postman, Bug Tracking, QA Automation', 'qa', NULL, '2026-03-23 21:18:42', '2026-03-23 21:18:42');
+INSERT INTO `employees` (`id`, `email`, `password`, `prenom`, `nom`, `profile_picture`, `telephone`, `address`, `titre`, `cv_summary`, `skills_json`, `languages_json`, `experiences_json`, `formations_json`, `certificates_json`, `created_at`, `updated_at`) VALUES
+(1, 'finasalmon@dollicons.com', '$2y$10$pf7g1/YA1X7tuWLD1Xzcw.v9SGOgHN4Vq1rfXK4U5QFfZKWcNG24W', 'toudik', 'toudik', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-23 16:47:46', '2026-03-23 17:29:43'),
+(2, 'employe1@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Amina', 'Bensalem', NULL, '+213550000001', 'Alger', 'Developpeuse Frontend', 'Developpeuse frontend orientee interfaces React et experience utilisateur.', '[\"HTML\",\"CSS\",\"JavaScript\",\"React\",\"Tailwind\"]', '[{\"language\":\"Francais\",\"level\":\"C2\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"Developpeuse Frontend\",\"entreprise\":\"NovaTech\",\"debut\":\"2022\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Informatique\",\"etablissement\":\"USTHB\"}]', '[{\"title\":\"Meta Front-End Developer\",\"issuer\":\"Meta\",\"year\":\"2024\",\"link\":\"https://example.com/cert/meta-front\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(3, 'employe2@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Youssef', 'Mekki', NULL, '+213550000002', 'Oran', 'Developpeur Backend PHP', 'Profil backend avec experience sur PHP, APIs REST et bases de donnees MySQL.', '[\"PHP\",\"Laravel\",\"MySQL\",\"REST API\",\"Git\"]', '[{\"language\":\"Francais\",\"level\":\"C1\"},{\"language\":\"Anglais\",\"level\":\"B1\"}]', '[{\"poste\":\"Developpeur Backend\",\"entreprise\":\"CodeFactory\",\"debut\":\"2021\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Licence Informatique\",\"etablissement\":\"Universite d Oran\"}]', '[{\"title\":\"PHP Developer Certificate\",\"issuer\":\"OpenClassrooms\",\"year\":\"2023\",\"link\":\"https://example.com/cert/php-dev\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(4, 'employe3@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Sabrina', 'Touati', NULL, '+213550000003', 'Constantine', 'UX UI Designer', 'Designer produit avec sensibilite UX research et design systems.', '[\"Figma\",\"Design System\",\"Wireframing\",\"Prototyping\",\"Accessibility\"]', '[{\"language\":\"Francais\",\"level\":\"C2\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"UX UI Designer\",\"entreprise\":\"Pixel Studio\",\"debut\":\"2020\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Design Numerique\",\"etablissement\":\"Universite Constantine 3\"}]', '[{\"title\":\"Google UX Design\",\"issuer\":\"Google\",\"year\":\"2024\",\"link\":\"https://example.com/cert/google-ux\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(5, 'employe4@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Bilal', 'Ait Ali', NULL, '+213550000004', 'Blida', 'Data Analyst', 'Analyste data capable de structurer des tableaux de bord et de nettoyer les donnees.', '[\"SQL\",\"Power BI\",\"Excel\",\"Python\",\"Data Visualization\"]', '[{\"language\":\"Francais\",\"level\":\"C1\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"Data Analyst\",\"entreprise\":\"Insight Lab\",\"debut\":\"2021\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Statistiques\",\"etablissement\":\"Universite Blida\"}]', '[{\"title\":\"Power BI Data Analyst\",\"issuer\":\"Microsoft\",\"year\":\"2023\",\"link\":\"https://example.com/cert/power-bi\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(6, 'employe5@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Lina', 'Ferhat', NULL, '+213550000005', 'Setif', 'Chef de Projet Digital', 'Chef de projet a l aise avec coordination produit, planning et suivi client.', '[\"Gestion de projet\",\"Agile\",\"Scrum\",\"Jira\",\"Communication\"]', '[{\"language\":\"Francais\",\"level\":\"C2\"},{\"language\":\"Anglais\",\"level\":\"B1\"}]', '[{\"poste\":\"Chef de Projet\",\"entreprise\":\"Digital Wave\",\"debut\":\"2019\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Management\",\"etablissement\":\"Universite Setif\"}]', '[{\"title\":\"PSM I\",\"issuer\":\"Scrum.org\",\"year\":\"2024\",\"link\":\"https://example.com/cert/psm1\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(7, 'employe6@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Riad', 'Boukhalfa', NULL, '+213550000006', 'Annaba', 'DevOps Engineer', 'Ingenieur DevOps avec experience CI CD, dockerisation et supervision.', '[\"Docker\",\"Linux\",\"GitHub Actions\",\"Nginx\",\"Monitoring\"]', '[{\"language\":\"Francais\",\"level\":\"C1\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"DevOps Engineer\",\"entreprise\":\"CloudBridge\",\"debut\":\"2022\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Ingenieur Systeme\",\"etablissement\":\"Universite Annaba\"}]', '[{\"title\":\"AWS Cloud Practitioner\",\"issuer\":\"AWS\",\"year\":\"2024\",\"link\":\"https://example.com/cert/aws-cloud\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(8, 'employe7@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Imane', 'Bouras', NULL, '+213550000007', 'Tlemcen', 'Assistante RH', 'Profil RH polyvalent avec suivi administratif et recrutement junior.', '[\"Recrutement\",\"Administration RH\",\"Excel\",\"Organisation\",\"Communication\"]', '[{\"language\":\"Francais\",\"level\":\"C2\"},{\"language\":\"Anglais\",\"level\":\"B1\"}]', '[{\"poste\":\"Assistante RH\",\"entreprise\":\"People First\",\"debut\":\"2021\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Licence Gestion\",\"etablissement\":\"Universite Tlemcen\"}]', '[{\"title\":\"HR Fundamentals\",\"issuer\":\"Coursera\",\"year\":\"2023\",\"link\":\"https://example.com/cert/hr-fundamentals\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(9, 'employe8@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Hakim', 'Mansouri', NULL, '+213550000008', 'Bejaia', 'Technicien Support IT', 'Technicien support oriente assistance utilisateurs, reseau local et maintenance.', '[\"Support IT\",\"Windows\",\"Reseau\",\"Helpdesk\",\"Maintenance\"]', '[{\"language\":\"Francais\",\"level\":\"C1\"},{\"language\":\"Anglais\",\"level\":\"B1\"}]', '[{\"poste\":\"Technicien Support\",\"entreprise\":\"IT Service Pro\",\"debut\":\"2020\",\"fin\":\"2025\"}]', '[{\"diplome\":\"TS Reseaux\",\"etablissement\":\"CFPA Bejaia\"}]', '[{\"title\":\"Google IT Support\",\"issuer\":\"Google\",\"year\":\"2024\",\"link\":\"https://example.com/cert/google-it\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(10, 'employe9@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Nour', 'Saidi', NULL, '+213550000009', 'Alger', 'Content Manager', 'Specialiste contenu digital et communication de marque sur canaux web.', '[\"Content Strategy\",\"SEO\",\"Copywriting\",\"Social Media\",\"Canva\"]', '[{\"language\":\"Francais\",\"level\":\"C2\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"Content Manager\",\"entreprise\":\"Media Spark\",\"debut\":\"2021\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Communication\",\"etablissement\":\"Universite Alger 3\"}]', '[{\"title\":\"SEO Fundamentals\",\"issuer\":\"Semrush\",\"year\":\"2024\",\"link\":\"https://example.com/cert/seo\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(11, 'employe10@careerpropulse.seed', '$2y$12$J5uz83KTIjeysb.C0TghMulEoKzPDcIkG7qy3Twj/MciLFGFU5cSq', 'Samir', 'Hamlaoui', NULL, '+213550000010', 'Oran', 'QA Engineer', 'Ingenieur QA avec automatisation de tests et verification fonctionnelle.', '[\"Testing\",\"Cypress\",\"Postman\",\"Bug Tracking\",\"QA Automation\"]', '[{\"language\":\"Francais\",\"level\":\"C1\"},{\"language\":\"Anglais\",\"level\":\"B2\"}]', '[{\"poste\":\"QA Engineer\",\"entreprise\":\"Quality Hub\",\"debut\":\"2022\",\"fin\":\"2025\"}]', '[{\"diplome\":\"Master Logiciel\",\"etablissement\":\"Universite Oran 1\"}]', '[{\"title\":\"ISTQB Foundation\",\"issuer\":\"ISTQB\",\"year\":\"2024\",\"link\":\"https://example.com/cert/istqb\"}]', '2026-03-23 21:18:42', '2026-03-23 21:18:42');
 
 -- --------------------------------------------------------
 
@@ -120,8 +122,6 @@ CREATE TABLE IF NOT EXISTS `job_offers` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `location` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `domaine` enum('frontend','backend','data','design','gestion','devops','rh','support','marketing','qa') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `required_skills` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -133,64 +133,32 @@ CREATE TABLE IF NOT EXISTS `job_offers` (
 -- Dumping data for table `job_offers`
 --
 
-INSERT INTO `job_offers` (`id`, `employer_id`, `title`, `description`, `location`, `domaine`, `created_at`, `updated_at`) VALUES
-(2, 'employeur.1774286310027@careerpropulse.test', 'Developpeur Frontend React', 'Nous recherchons un developpeur frontend pour rejoindre une equipe produit, travailler sur React, integrer des APIs et ameliorer l experience utilisateur.', 'Alger - Hybride', 'frontend', '2026-03-23 17:19:22', '2026-03-23 17:29:43'),
-(3, 'recruteur1@careerpropulse.seed', 'Developpeur Frontend React', 'Nous recherchons un profil React pour construire des interfaces modernes et collaborer avec les designers.', 'Alger - Hybride', 'frontend', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(4, 'recruteur1@careerpropulse.seed', 'UX UI Designer', 'Vous participerez a la conception d interfaces, aux parcours utilisateurs et a la maintenance du design system.', 'Alger - Hybride', 'design', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(5, 'recruteur2@careerpropulse.seed', 'Developpeur PHP Laravel', 'Equipe backend a renforcer pour le developpement d APIs internes et de modules e-commerce.', 'Oran - Sur site', 'backend', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(6, 'recruteur2@careerpropulse.seed', 'Chef de Projet Digital', 'Pilotage de projets de transformation digitale avec coordination metiers et equipe technique.', 'Oran - Hybride', 'gestion', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(7, 'recruteur3@careerpropulse.seed', 'Data Analyst', 'Analyse de donnees operationnelles et construction de tableaux de bord pour la direction.', 'Constantine - Hybride', 'data', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(8, 'recruteur3@careerpropulse.seed', 'DevOps Engineer', 'Mise en place de pipelines CI CD, conteneurisation et supervision des environnements.', 'Constantine - Remote', 'devops', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(9, 'recruteur4@careerpropulse.seed', 'Business Analyst', 'Analyse des besoins metiers et redaction de specifications pour les equipes produit.', 'Alger - Sur site', 'gestion', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(10, 'recruteur4@careerpropulse.seed', 'QA Engineer', 'Execution de tests fonctionnels et automatisation progressive des cas critiques.', 'Alger - Hybride', 'qa', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(11, 'recruteur5@careerpropulse.seed', 'Technicien Support IT', 'Support utilisateurs, resolution des incidents et maintenance de postes de travail.', 'Setif - Sur site', 'support', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(12, 'recruteur5@careerpropulse.seed', 'Content Manager', 'Creation de contenu digital, coordination editoriale et suivi SEO.', 'Setif - Hybride', 'marketing', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(13, 'recruteur6@careerpropulse.seed', 'Coordinateur Logistique Digital', 'Suivi des flux et amelioration des outils internes utilises par les equipes operationnelles.', 'Annaba - Sur site', 'gestion', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(14, 'recruteur6@careerpropulse.seed', 'Administrateur Systeme Junior', 'Administration d outils internes, support technique et suivi de la documentation.', 'Annaba - Hybride', 'devops', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(15, 'recruteur7@careerpropulse.seed', 'Product Designer', 'Conception produit et prototypes pour une plateforme education.', 'Tlemcen - Remote', 'design', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(16, 'recruteur7@careerpropulse.seed', 'Customer Success Manager', 'Accompagnement client, onboarding et suivi de satisfaction.', 'Tlemcen - Hybride', 'gestion', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(17, 'recruteur8@careerpropulse.seed', 'Charge de Recrutement', 'Gestion du sourcing, prequalification et suivi des candidatures.', 'Blida - Sur site', 'rh', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(18, 'recruteur8@careerpropulse.seed', 'Office Manager', 'Organisation interne, coordination administrative et support aux equipes.', 'Blida - Sur site', 'gestion', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(19, 'recruteur9@careerpropulse.seed', 'Community Manager', 'Animation des reseaux sociaux et creation de campagnes engageantes.', 'Bejaia - Hybride', 'marketing', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(20, 'recruteur9@careerpropulse.seed', 'Growth Marketer', 'Tests de canaux d acquisition et analyse de performances marketing.', 'Bejaia - Remote', 'marketing', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(21, 'recruteur10@careerpropulse.seed', 'Developpeur Full Stack', 'Developpement de nouvelles fonctionnalites web cote front et back.', 'Alger - Hybride', 'frontend', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
-(22, 'recruteur10@careerpropulse.seed', 'Assistante RH', 'Support administratif RH, preparation de dossiers et gestion des entretiens.', 'Alger - Sur site', 'rh', '2026-03-23 21:18:42', '2026-03-23 21:18:42');
--- --------------------------------------------------------
+INSERT INTO `job_offers` (`id`, `employer_id`, `title`, `description`, `location`, `created_at`, `updated_at`) VALUES
+(2, 'employeur.1774286310027@careerpropulse.test', 'Developpeur Frontend React', 'Nous recherchons un developpeur frontend pour rejoindre une equipe produit, travailler sur React, integrer des APIs et ameliorer l experience utilisateur.', 'Alger - Hybride', '2026-03-23 17:19:22', '2026-03-23 17:29:43'),
+(3, 'recruteur1@careerpropulse.seed', 'Developpeur Frontend React', 'Nous recherchons un profil React pour construire des interfaces modernes et collaborer avec les designers.', 'Alger - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(4, 'recruteur1@careerpropulse.seed', 'UX UI Designer', 'Vous participerez a la conception d interfaces, aux parcours utilisateurs et a la maintenance du design system.', 'Alger - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(5, 'recruteur2@careerpropulse.seed', 'Developpeur PHP Laravel', 'Equipe backend a renforcer pour le developpement d APIs internes et de modules e-commerce.', 'Oran - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(6, 'recruteur2@careerpropulse.seed', 'Chef de Projet Digital', 'Pilotage de projets de transformation digitale avec coordination metiers et equipe technique.', 'Oran - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(7, 'recruteur3@careerpropulse.seed', 'Data Analyst', 'Analyse de donnees operationnelles et construction de tableaux de bord pour la direction.', 'Constantine - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(8, 'recruteur3@careerpropulse.seed', 'DevOps Engineer', 'Mise en place de pipelines CI CD, conteneurisation et supervision des environnements.', 'Constantine - Remote', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(9, 'recruteur4@careerpropulse.seed', 'Business Analyst', 'Analyse des besoins metiers et redaction de specifications pour les equipes produit.', 'Alger - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(10, 'recruteur4@careerpropulse.seed', 'QA Engineer', 'Execution de tests fonctionnels et automatisation progressive des cas critiques.', 'Alger - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(11, 'recruteur5@careerpropulse.seed', 'Technicien Support IT', 'Support utilisateurs, resolution des incidents et maintenance de postes de travail.', 'Setif - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(12, 'recruteur5@careerpropulse.seed', 'Content Manager', 'Creation de contenu digital, coordination editoriale et suivi SEO.', 'Setif - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(13, 'recruteur6@careerpropulse.seed', 'Coordinateur Logistique Digital', 'Suivi des flux et amelioration des outils internes utilises par les equipes operationnelles.', 'Annaba - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(14, 'recruteur6@careerpropulse.seed', 'Administrateur Systeme Junior', 'Administration d outils internes, support technique et suivi de la documentation.', 'Annaba - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(15, 'recruteur7@careerpropulse.seed', 'Product Designer', 'Conception produit et prototypes pour une plateforme education.', 'Tlemcen - Remote', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(16, 'recruteur7@careerpropulse.seed', 'Customer Success Manager', 'Accompagnement client, onboarding et suivi de satisfaction.', 'Tlemcen - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(17, 'recruteur8@careerpropulse.seed', 'Charge de Recrutement', 'Gestion du sourcing, prequalification et suivi des candidatures.', 'Blida - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(18, 'recruteur8@careerpropulse.seed', 'Office Manager', 'Organisation interne, coordination administrative et support aux equipes.', 'Blida - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(19, 'recruteur9@careerpropulse.seed', 'Community Manager', 'Animation des reseaux sociaux et creation de campagnes engageantes.', 'Bejaia - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(20, 'recruteur9@careerpropulse.seed', 'Growth Marketer', 'Tests de canaux d acquisition et analyse de performances marketing.', 'Bejaia - Remote', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(21, 'recruteur10@careerpropulse.seed', 'Developpeur Full Stack', 'Developpement de nouvelles fonctionnalites web cote front et back.', 'Alger - Hybride', '2026-03-23 21:18:42', '2026-03-23 21:18:42'),
+(22, 'recruteur10@careerpropulse.seed', 'Assistante RH', 'Support administratif RH, preparation de dossiers et gestion des entretiens.', 'Alger - Sur site', '2026-03-23 21:18:42', '2026-03-23 21:18:42');
 
---
--- Table structure for table `applications`
---
-
-DROP TABLE IF EXISTS `applications`;
-CREATE TABLE IF NOT EXISTS `applications` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `offer_id` int UNSIGNED NOT NULL,
-  `candidate_id` int UNSIGNED NOT NULL,
-  `status` enum('pending','accepted','rejected') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
-  `applied_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `idx_applications_offer_id` (`offer_id`),
-  KEY `idx_applications_candidate_id` (`candidate_id`),
-  KEY `idx_applications_status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`id`, `offer_id`, `candidate_id`, `status`, `applied_at`, `updated_at`) VALUES
-(1, 2, 1, 'pending', '2026-03-23 21:18:42', '2026-03-23 21:18:42');
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `applications`
---
-ALTER TABLE `applications`
-  ADD CONSTRAINT `fk_applications_offer` FOREIGN KEY (`offer_id`) REFERENCES `job_offers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_applications_candidate` FOREIGN KEY (`candidate_id`) REFERENCES `cv-employe` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `job_offers`

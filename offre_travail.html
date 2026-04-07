@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier une offre - CareerPropulse</title>
+    <link rel="stylesheet" href="offre_travail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bleu">Career</span><span class="logo-vert">Propulse</span>
+            </a>
+            <div class="nav-buttons">
+                <button id="addOfferBtn" class="btn-add-offer"><i class="fas fa-plus-circle"></i> Ajouter une offre</button>
+                 <button id="addOfferBtn" class="btn-add-offer"><i class="fas fa-plus-circle"></i> Acceille</button>
+               
+                <span class="user-info" id="userInfo"></span>
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-card">
+            <h1><i class="fas fa-plus-circle"></i> Nouvelle offre d'emploi</h1>
+            <form id="offerForm">
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Titre du poste *</label>
+                    <input type="text" id="title" class="form-control" placeholder="ex: Développeur Full Stack" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label><i class="fas fa-map-marker-alt"></i> Localisation *</label>
+                        <input type="text" id="location" class="form-control" placeholder="Alger, Télétravail..." required>
+                    </div>
+                    <div class="form-group half">
+                        <label><i class="fas fa-briefcase"></i> Type de contrat</label>
+                        <select id="contract" class="form-control">
+                            <option value="CDI">CDI</option>
+                            <option value="CDD">CDD</option>
+                            <option value="Freelance">Freelance</option>
+                            <option value="Stage">Stage</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-align-left"></i> Description du poste *</label>
+                    <textarea id="description" class="form-control" rows="5" placeholder="Décrivez les missions, l'équipe, le profil recherché..." required></textarea>
+                </div>
+
+                <!-- Compétences requises -->
+                <div class="form-group">
+                    <label><i class="fas fa-code"></i> Compétences requises</label>
+                    <div class="skills-input-container">
+                        <div id="skillsContainer" class="tags-container"></div>
+                        <input type="text" id="skillInput" class="skill-input" placeholder="Ajouter une compétence (ex: Python, JavaScript)...">
+                    </div>
+                    <small class="form-hint">Appuyez sur Entrée ou virgule pour ajouter</small>
+                </div>
+
+                <!-- Langues requises -->
+                <div class="form-group">
+                    <label><i class="fas fa-language"></i> Langues requises</label>
+                    <div id="languagesContainer" class="languages-container"></div>
+                    <button type="button" class="btn-add-langue" id="addLangueBtn"><i class="fas fa-plus"></i> Ajouter une langue</button>
+                </div>
+
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Publier l'offre</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="offre_travail.js"></script>
+</body>
+</html>

@@ -476,16 +476,11 @@ body {
     color: var(--bleu-profond);
     box-shadow: 0 5px 15px var(--ombre-douce);
     animation: bubble-float 3s ease-in-out infinite;
-<<<<<<< HEAD
-=======
-    animation-delay: calc(var(--i) * -0.2s);
->>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
     cursor: default;
     transition: var(--transition-douce);
     border: 1px solid rgba(0, 180, 165, 0.2);
 }
 
-<<<<<<< HEAD
 .skill-bubble-1 { animation-delay: -0.2s; }
 .skill-bubble-2 { animation-delay: -0.4s; }
 .skill-bubble-3 { animation-delay: -0.6s; }
@@ -502,8 +497,6 @@ body {
 .skill-bubble-14 { animation-delay: -2.8s; }
 .skill-bubble-15 { animation-delay: -3s; }
 
-=======
->>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
 .skill-bubble:hover {
     transform: scale(1.1);
     background: linear-gradient(135deg, var(--vert-emeraude), var(--vert-clair));
@@ -758,8 +751,4 @@ body {
     .search-tech-bar:focus-within {
         transform: scale(1.02);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ca0e8c04de280631265df0e99a1c462b2e1a3d54
